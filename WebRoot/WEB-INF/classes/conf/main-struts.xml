@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+  <!-- 配置一系列常量 -->
+    <constant name="struts.i18n.encoding" value="UTF-8"/>
+    <!-- constant name="struts.devMode" value="true"/ -->
+    <constant name="struts.enable.DynamicMethodInvocation" value="false"/>
+    <constant name="struts.objectFactory.spring.autoWire" value="auto"></constant>
+    <constant name="struts.multipart.saveDir" value="/tmp"/>
+    <constant name="struts.multipart.maxSize" value="100000000"/> 
+    <constant name="struts.action.extension" value="action"/>  
+	<package name="default" namespace="/" extends="struts-default,json-default">
+		<action name="login_*" class="action.LoginAction" method="{1}">
+			<result name="success" type="json">
+				<param name="root">userLoginData</param>
+				<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>
+				<param name="charSet">UTF-8</param>
+			</result>
+		</action>
+		<action name="autologin_*" class="action.AutoLoginAction" method="{1}">
+			<result name="success" type="json">
+				<param name="root">userLoginData</param>
+				<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>
+				<param name="charSet">UTF-8</param>
+			</result>
+		</action>
+		<action name="register_*" class="action.RegisterAction" method="{1}">
+			<result name="success" type="json">
+				<param name="root">commonReturnData</param>
+				<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>
+				<param name="charSet">UTF-8</param>
+			</result>
+		</action>
+		<action name="modifyPasswordCheck_*" class="action.ModifyPasswordCheck" method="{1}">
+			<result name="success" type="json">
+				<param name="root">commonReturnData</param>
+				<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>
+				<param name="charSet">UTF-8</param>
+			</result>
+		</action>
+		<action name="modifyPasswordDo_*" class="action.ModifyPassword" method="{1}">
+			<result name="success" type="json">
+				<param name="root">commonReturnData</param>
+				<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>
+				<param name="charSet">UTF-8</param>
+			</result>
+		</action>
+		<action name="addbook_*" class="action.AddBookAction" method="{1}">
+		<!-- 限制运行上传的文件的类型 -->
+			<interceptor-ref name="defaultStack">
+				
+				<!-- 限制运行的文件的扩展名 -->
+				<param name="fileUpload.allowedExtensions">jpg,jpeg,png,bmp,gif</param>
+			</interceptor-ref>
+			<result name="success" type="json">
+				<param name="root">commonReturnData</param>
+				<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>
+				<param name="charSet">UTF-8</param>
+			</result>
+		</action>
+		<action name="getgivebook_*" class="action.GivebookAction" method="{1}">
+			 <result name="success" type="json">
+				<param name="root">bookReturnData</param>
+				<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>
+				<param name="charSet">UTF-8</param>
+			</result>
+		</action>
+		
+		<action name="getoldbook_*" class="action.OldbookAction" method="{1}">
+			 <result name="success" type="json">
+				<param name="root">bookReturnData</param>
+				<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>
+				<param name="charSet">UTF-8</param>
+			</result>
+		</action>
+		<action name="addcomment_*" class="action.AddCommentAction" method="{1}">
+			 <result name="success" type="json">
+				<param name="root">commonReturnData</param>
+				<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>
+				<param name="charSet">UTF-8</param>
+			</result>
+		</action>
+		<action name="getcomment_*" class="action.GetCommentAction" method="{1}">
+			 <result name="success" type="json">
+				<param name="root">bookCommentData</param>
+				<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>
+				<param name="charSet">UTF-8</param>
+			</result>
+		</action>
+		<action name="followuser_*" class="action.FollowUserAction" method="{1}">
+			 <result name="success" type="json">
+				<param name="root">commonReturnData</param>
+				<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>
+				<param name="charSet">UTF-8</param>
+			</result>
+		</action>
+		<action name="getfollows_*" class="action.GetFollowsAction" method="{1}">
+			 <result name="success" type="json">
+				<param name="root">usersData</param>
+				<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>
+				<param name="charSet">UTF-8</param>
+			</result>
+		</action>
+	</package>
+</struts>
