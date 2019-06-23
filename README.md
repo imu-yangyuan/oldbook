@@ -11,4 +11,4 @@
 ### 0x02 关于
 
 - 如何支持作者：点击右上角的"star" 的按钮，是对作者的最大支持；
-- 如有问题，请[提交issue](https://github.com/imu-yangyuan/oldbook/issues/new);
+- 如有问题，请[提交issue](https://github.com/yangyuan6/oldbook/issues/new);
